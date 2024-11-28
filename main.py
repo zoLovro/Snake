@@ -79,6 +79,7 @@ def main_menu():
                 quit()
             if button_start.pressed:
                 button_start.pressed = False
+                game_reset()
                 return "game"
 
         pg.display.flip()
@@ -149,11 +150,7 @@ def game_loop():
             button_main.draw()
             if button_retry.pressed:
                 pg.mixer.Sound.play(button_click)
-                snake.center, food.center = get_random_position(), get_random_position()
-                length, snake_dir = 1, (0, 0)
-                segments = [snake.copy()]
-                highscore = score
-                score = 0
+                game_reset()
                 gameover = False
                 button_retry.pressed = False
             elif button_main.pressed:
@@ -170,10 +167,7 @@ def game_loop():
                 button_continue.pressed = False
             elif button_retry.pressed:
                 pause = False
-                pg.mixer.Sound.play(button_click)
-                snake.center, food.center = get_random_position(), get_random_position()
-                length, snake_dir = 1, (0, 0)
-                segments = [snake.copy()]
+                game_reset()
                 button_retry.pressed = False
             elif button_main.pressed:
                 button_main.pressed = False
@@ -199,6 +193,17 @@ def game_loop():
 
         pg.display.flip()
         clock.tick(60)
+
+def game_reset():
+    global length, snake_dir, segments, highscore, score
+
+    snake.center, food.center = get_random_position(), get_random_position()
+    length, snake_dir = 1, (0, 0)
+    segments = [snake.copy()]
+    highscore = score
+    score = 0
+
+
 
 if __name__ == "__main__":
     current_state = "menu"  # Start in the menu
