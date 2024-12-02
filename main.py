@@ -45,6 +45,7 @@ button_click = pg.mixer.Sound('./sounds/Button_sound.mp3')
 sound = False
 pause = False
 gameover = False
+last_input = None
 
 # Main menu function
 def main_menu():
@@ -88,7 +89,7 @@ def main_menu():
 # Game function
 def game_loop():
     # Globals
-    global length, segments, highscore, score, gameover, pause, sound, snake_dir, snake, time
+    global length, segments, highscore, score, gameover, pause, sound, snake_dir, snake, time, last_input
 
     while True:
         if not sound:
@@ -105,14 +106,18 @@ def game_loop():
             # Keys
             if event.type == pg.KEYDOWN:
                 if not pause and not gameover:
-                    if event.key == pg.K_w or event.key == pg.K_UP and snake_dir != (0, TILE_SIZE):
+                    if event.key == pg.K_UP and last_input != 2:
                         snake_dir = (0, -TILE_SIZE)
-                    if event.key == pg.K_s or event.key == pg.K_DOWN and snake_dir != (0, -TILE_SIZE):
+                        last_input = 1
+                    if event.key == pg.K_DOWN and last_input != 1:
                         snake_dir = (0, TILE_SIZE)
-                    if event.key == pg.K_a or event.key == pg.K_LEFT and snake_dir != (TILE_SIZE, 0):
+                        last_input = 2
+                    if event.key == pg.K_LEFT and last_input != 4:
                         snake_dir = (-TILE_SIZE, 0)
-                    if event.key == pg.K_d or event.key == pg.K_RIGHT and snake_dir != (-TILE_SIZE, 0):
+                        last_input = 3
+                    if event.key == pg.K_RIGHT and last_input != 3:
                         snake_dir = (TILE_SIZE, 0)
+                        last_input = 4
 
                 # Pause button
                 if event.key == pg.K_ESCAPE:
@@ -195,13 +200,14 @@ def game_loop():
         clock.tick(60)
 
 def game_reset():
-    global length, snake_dir, segments, highscore, score
+    global length, snake_dir, segments, highscore, score, last_input
 
     snake.center, food.center = get_random_position(), get_random_position()
     length, snake_dir = 1, (0, 0)
     segments = [snake.copy()]
     highscore = score
     score = 0
+    last_input = None
 
 
 
