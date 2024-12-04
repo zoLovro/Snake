@@ -3,6 +3,8 @@ from random import randrange
 import pygame.mouse
 from buttons import Button
 from globals import gui_font, menu_font, over_font, screen
+from pngs import (snake_body, snake_open_mouth_right, snake_open_mouth_left, snake_open_mouth_up, snake_open_mouth_down,
+                  snake_closed_mouth_right, snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down)
 
 pg.init()
 
@@ -14,13 +16,14 @@ pg.display.set_caption('Snake')
 RANGE = (TILE_SIZE // 2, WINDOW - TILE_SIZE // 2, TILE_SIZE)
 get_random_position = lambda: [randrange(*RANGE), randrange(*RANGE)]
 
-snake = pg.Rect([0, 0, TILE_SIZE - 2, TILE_SIZE - 2])
+snake = snake_closed_mouth_right.get_rect()
 length = 1
 snake.center = get_random_position()
 segments = [snake.copy()]
 snake_dir = (0, 0)
 time, time_step = 0, 100
 
+# Food
 food = snake.copy()
 food.center = get_random_position()
 
@@ -121,20 +124,19 @@ def game_loop():
 
                 # Pause button
                 if event.key == pg.K_ESCAPE:
-                    if pause:
-                        pause = False
-                    else:
-                        pause = True
+                    pause = not pause
 
         # Drawing the snake
-        [pg.draw.rect(screen, 'green', segment) for segment in segments]
+        for segment in segments[:-1]:
+            screen.blit(snake_body, segment)
+        screen.blit(snake_closed_mouth_right, segments[-1])
 
         # Checking food
         if snake.center == food.center:
             food.center = get_random_position()
             length += 1
             score += 1
-        elif food.center == segments:
+        while food.center in [segment.center for segment in segments]:
             food.center = get_random_position()
 
         # Drawing the food
@@ -193,7 +195,8 @@ def game_loop():
             if time_now - time > time_step:
                 time = time_now
                 snake.move_ip(snake_dir)
-                segments.append(snake.copy())
+                new_head = pg.Rect(snake)
+                segments.append(new_head)
                 segments = segments[-length:]
 
         pg.display.flip()
