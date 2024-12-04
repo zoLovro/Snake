@@ -3,10 +3,13 @@ from random import randrange
 import pygame.mouse
 from buttons import Button
 from globals import gui_font, menu_font, over_font, screen
-from pngs import (snake_body, snake_open_mouth_right, snake_open_mouth_left, snake_open_mouth_up, snake_open_mouth_down,
+from pngs import (snake_body_col, snake_open_mouth_right, snake_open_mouth_left, snake_open_mouth_up, snake_open_mouth_down,
                   snake_closed_mouth_right, snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down)
+from snake_mouth_toggle import state_mapping
 
 pg.init()
+
+
 
 WINDOW = 750
 TILE_SIZE = 50
@@ -17,6 +20,8 @@ RANGE = (TILE_SIZE // 2, WINDOW - TILE_SIZE // 2, TILE_SIZE)
 get_random_position = lambda: [randrange(*RANGE), randrange(*RANGE)]
 
 snake = snake_closed_mouth_right.get_rect()
+snake_png = snake_closed_mouth_right
+snake_png_open = snake_open_mouth_right
 length = 1
 snake.center = get_random_position()
 segments = [snake.copy()]
@@ -92,9 +97,11 @@ def main_menu():
 # Game function
 def game_loop():
     # Globals
-    global length, segments, highscore, score, gameover, pause, sound, snake_dir, snake, time, last_input
+    global length, segments, highscore, score, gameover, pause, sound, snake_dir,\
+        snake, time, last_input, snake_png, snake_png_open
 
     while True:
+        # Game music
         if not sound:
             pygame.mixer.Sound.play(game_theme)
             sound = True
@@ -111,15 +118,19 @@ def game_loop():
                 if not pause and not gameover:
                     if event.key == pg.K_UP and last_input != 2:
                         snake_dir = (0, -TILE_SIZE)
+                        snake_png = snake_closed_mouth_up
                         last_input = 1
                     if event.key == pg.K_DOWN and last_input != 1:
                         snake_dir = (0, TILE_SIZE)
+                        snake_png = snake_closed_mouth_down
                         last_input = 2
                     if event.key == pg.K_LEFT and last_input != 4:
                         snake_dir = (-TILE_SIZE, 0)
+                        snake_png = snake_closed_mouth_left
                         last_input = 3
                     if event.key == pg.K_RIGHT and last_input != 3:
                         snake_dir = (TILE_SIZE, 0)
+                        snake_png = snake_closed_mouth_right
                         last_input = 4
 
                 # Pause button
@@ -128,8 +139,8 @@ def game_loop():
 
         # Drawing the snake
         for segment in segments[:-1]:
-            screen.blit(snake_body, segment)
-        screen.blit(snake_closed_mouth_right, segments[-1])
+            screen.blit(snake_body_col, segment)
+        screen.blit(snake_png, segments[-1])
 
         # Checking food
         if snake.center == food.center:
@@ -198,6 +209,11 @@ def game_loop():
                 new_head = pg.Rect(snake)
                 segments.append(new_head)
                 segments = segments[-length:]
+
+        # Mouth animation
+        if not gameover and not pause:
+            snake_png = state_mapping.get(snake_png, snake_png)
+
 
         pg.display.flip()
         clock.tick(60)
