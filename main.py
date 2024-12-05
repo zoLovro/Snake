@@ -3,9 +3,10 @@ from random import randrange
 import pygame.mouse
 from buttons import Button
 from globals import gui_font, menu_font, over_font, screen
-from pngs import (snake_body_col, snake_open_mouth_right, snake_open_mouth_left, snake_open_mouth_up, snake_open_mouth_down,
-                  snake_closed_mouth_right, snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down)
+from pngs import (snake_body_col, snake_open_mouth_right, snake_closed_mouth_right,
+                  snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down)
 from snake_mouth_toggle import state_mapping
+from save_load import save_highscore, load_highscore
 
 pg.init()
 
@@ -32,6 +33,10 @@ open_mouth = False
 mouth_timer = 0
 mouth_interval = 300
 
+# Movement restriction
+move_timer = 0
+move_interval = 50
+
 # Food
 food = snake.copy()
 food.center = get_random_position()
@@ -46,6 +51,8 @@ button_main = Button('Main menu', 200, 45, (275, 455), 5)
 button_continue = Button('Continue', 200, 45, (275, 255), 5)
 button_retry = Button('Retry', 200, 45, (275, 355), 5)
 button_quit_pause = Button('Quit', 200, 45, (275, 455), 5)
+button_save = Button('Save', 100, 45, (650, 648), 5)
+button_load = Button('Load', 100, 45, (650, 700), 5)
 
 # Sounds
 main_menu_theme = pg.mixer.Sound('./sounds/Main_menu_theme.mp3')
@@ -62,8 +69,10 @@ last_input = None
 # Main menu function
 def main_menu():
     # Globals
-    global sound, pause, gameover, snake_dir
-    sound = False
+    global sound, pause, gameover, snake_dir, move_timer, move_interval, highscore
+
+    if not sound:
+        sound = True
     pause = False
     gameover = False
     snake_dir = (0, 0)
@@ -72,6 +81,9 @@ def main_menu():
         screen.fill('black')
         button_start.draw()
         button_quit.draw()
+        button_load.draw()
+        button_save.draw()
+
 
         highscore_txt = gui_font.render('HIGHSCORE: ' + str(highscore), True, (0, 255, 0))
         highscore_rect = highscore_txt.get_rect(center=(750 // 2, 20))
@@ -95,6 +107,15 @@ def main_menu():
                 game_reset()
                 return "game"
 
+            # Save hs
+            if button_save.pressed:
+                save_highscore(highscore, "highscore.sav")
+                button_save.pressed = False
+            # Load hs
+            if button_load.pressed:
+                highscore = load_highscore("highscore.sav")
+                button_load.pressed = False
+
         pg.display.flip()
         clock.tick(60)
 
@@ -103,7 +124,7 @@ def game_loop():
     # Globals
     global length, segments, highscore, score, gameover, pause, sound, snake_dir,\
         snake, time, last_input, snake_png, snake_png_open, mouth_interval, open_mouth,\
-        mouth_timer
+        mouth_timer, move_timer
 
     while True:
         # Game music
@@ -111,7 +132,7 @@ def game_loop():
             pygame.mixer.Sound.play(game_theme)
             sound = True
 
-        screen.fill('black')
+        screen.fill('#DEAA79')
         current_time = pg.time.get_ticks()
 
         # Events
@@ -121,23 +142,30 @@ def game_loop():
 
             # Keys
             if event.type == pg.KEYDOWN:
-                if not pause and not gameover:
-                    if event.key == pg.K_UP and last_input != 2:
-                        snake_dir = (0, -TILE_SIZE)
-                        snake_png = snake_closed_mouth_up
-                        last_input = 1
-                    if event.key == pg.K_DOWN and last_input != 1:
-                        snake_dir = (0, TILE_SIZE)
-                        snake_png = snake_closed_mouth_down
-                        last_input = 2
-                    if event.key == pg.K_LEFT and last_input != 4:
-                        snake_dir = (-TILE_SIZE, 0)
-                        snake_png = snake_closed_mouth_left
-                        last_input = 3
-                    if event.key == pg.K_RIGHT and last_input != 3:
-                        snake_dir = (TILE_SIZE, 0)
-                        snake_png = snake_closed_mouth_right
-                        last_input = 4
+                move_time = pg.time.get_ticks()
+                if move_time - move_timer > move_interval:
+                    move_timer = move_time
+                    if not pause and not gameover:
+                        if event.key == pg.K_UP and last_input != 2:
+                            snake_dir = (0, -TILE_SIZE)
+                            snake_png = snake_closed_mouth_up
+                            last_input = 1
+                            move_time = 0
+                        if event.key == pg.K_DOWN and last_input != 1:
+                            snake_dir = (0, TILE_SIZE)
+                            snake_png = snake_closed_mouth_down
+                            last_input = 2
+                            move_time = 0
+                        if event.key == pg.K_LEFT and last_input != 4:
+                            snake_dir = (-TILE_SIZE, 0)
+                            snake_png = snake_closed_mouth_left
+                            last_input = 3
+                            move_time = 0
+                        if event.key == pg.K_RIGHT and last_input != 3:
+                            snake_dir = (TILE_SIZE, 0)
+                            snake_png = snake_closed_mouth_right
+                            last_input = 4
+                            move_time = 0
 
                 # Pause button
                 if event.key == pg.K_ESCAPE:
