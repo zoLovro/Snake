@@ -2,11 +2,13 @@ import pygame as pg
 from random import randrange
 import pygame.mouse
 from buttons import Button
-from globals import gui_font, menu_font, over_font, screen
+from globals import gui_font, menu_font, over_font, screen, resource_path
 from pngs import (snake_body_col, snake_open_mouth_right, snake_closed_mouth_right,
                   snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down, food_png)
 from snake_mouth_toggle import state_mapping
 from save_load import save_highscore, load_highscore
+
+
 
 pg.mixer.pre_init(44100, -16, 2, 512)
 pg.init()
@@ -57,10 +59,11 @@ button_save = Button('Save', 100, 45, (650, 648), 5)
 button_load = Button('Load', 100, 45, (650, 700), 5)
 
 # Sounds
-main_menu_theme = pg.mixer.Sound('sounds/Main_menu_theme.mp3')
-game_theme = pg.mixer.Sound('sounds/Game_music.mp3')
-pause_theme = pg.mixer.Sound('sounds/Pause_music.mp3')
-button_click = pg.mixer.Sound('sounds/Button_sound.mp3')
+main_menu_theme = pg.mixer.Sound(resource_path('sounds/Main_menu_theme.mp3'))
+button_click = pg.mixer.Sound(resource_path('sounds/Button_sound.mp3'))
+pause_theme = pg.mixer.Sound(resource_path('sounds/Pause_music.mp3'))
+button_click = pg.mixer.Sound(resource_path('sounds/Button_sound.mp3'))
+game_theme = pg.mixer.Sound(resource_path('sounds/Game_music.mp3'))
 
 # Statements
 sound = False
@@ -114,12 +117,12 @@ def main_menu():
             # Save hs
             if button_save.pressed:
                 pg.mixer.Sound.play(button_click)
-                save_highscore(highscore, "highscore.sav")
+                save_highscore(highscore, resource_path(resource_path("highscore.sav")))
                 button_save.pressed = False
             # Load hs
             if button_load.pressed:
                 pg.mixer.Sound.play(button_click)
-                highscore = load_highscore("highscore.sav")
+                highscore = load_highscore(resource_path(resource_path("highscore.sav")))
                 button_load.pressed = False
 
         pg.display.flip()
@@ -305,3 +308,5 @@ while True:
         current_state = main_menu()
     elif current_state == "game":
         current_state = game_loop()
+
+

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour">
+    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Fixed sound not working, changed the food to an apple x)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pngs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pngs.py" afterDir="false" />
     </list>
@@ -95,7 +96,7 @@
       <workItem from="1733343761321" duration="2000" />
       <workItem from="1733389518915" duration="5642000" />
       <workItem from="1733408164317" duration="6684000" />
-      <workItem from="1733418756388" duration="642000" />
+      <workItem from="1733418756388" duration="2011000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed menu big xd rawr">
       <option name="closed" value="true" />
@@ -153,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733416334273</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed sound not working, changed the food to an apple x)">
+      <option name="closed" value="true" />
+      <created>1733419739191</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733419739191</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,13 +192,14 @@
     <MESSAGE value="Added mouth animation, although it is kind of fast" />
     <MESSAGE value="Fixed mouth animation, added wrap-around-screen border logic x)" />
     <MESSAGE value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
+    <MESSAGE value="Fixed sound not working, changed the food to an apple x)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed sound not working, changed the food to an apple x)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Snek$kolesarjenje_po_manhattnu.coverage" NAME="kolesarjenje_po_manhattnu Coverage Results" MODIFIED="1733327157561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../Faks/P1/Naloge/Ocenjevanje" />
     <SUITE FILE_PATH="coverage/Snek$a.coverage" NAME="a Coverage Results" MODIFIED="1733419028500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$globals.coverage" NAME="globals Coverage Results" MODIFIED="1733318427946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733419320033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733420772823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$buttons.coverage" NAME="buttons Coverage Results" MODIFIED="1732808916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
