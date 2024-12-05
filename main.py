@@ -4,11 +4,13 @@ import pygame.mouse
 from buttons import Button
 from globals import gui_font, menu_font, over_font, screen
 from pngs import (snake_body_col, snake_open_mouth_right, snake_closed_mouth_right,
-                  snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down)
+                  snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down, food_png)
 from snake_mouth_toggle import state_mapping
 from save_load import save_highscore, load_highscore
 
+pg.mixer.pre_init(44100, -16, 2, 512)
 pg.init()
+pg.mixer.init()
 
 WINDOW = 750
 TILE_SIZE = 50
@@ -55,10 +57,10 @@ button_save = Button('Save', 100, 45, (650, 648), 5)
 button_load = Button('Load', 100, 45, (650, 700), 5)
 
 # Sounds
-main_menu_theme = pg.mixer.Sound('./sounds/Main_menu_theme.mp3')
-game_theme = pg.mixer.Sound('./sounds/Game_music.mp3')
-pause_theme = pg.mixer.Sound('./sounds/Pause_music.mp3')
-button_click = pg.mixer.Sound('./sounds/Button_sound.mp3')
+main_menu_theme = pg.mixer.Sound('sounds/Main_menu_theme.mp3')
+game_theme = pg.mixer.Sound('sounds/Game_music.mp3')
+pause_theme = pg.mixer.Sound('sounds/Pause_music.mp3')
+button_click = pg.mixer.Sound('sounds/Button_sound.mp3')
 
 # Statements
 sound = False
@@ -71,8 +73,7 @@ def main_menu():
     # Globals
     global sound, pause, gameover, snake_dir, move_timer, move_interval, highscore
 
-    if not sound:
-        sound = True
+    sound = False
     pause = False
     gameover = False
     snake_dir = (0, 0)
@@ -94,7 +95,8 @@ def main_menu():
         screen.blit(title_txt, title_rect)
 
         if not sound:
-            pygame.mixer.Sound.play(main_menu_theme)
+            pg.mixer.Sound.play(main_menu_theme)
+            main_menu_theme.set_volume(0.5)
             sound = True
 
         for event in pygame.event.get():
@@ -103,16 +105,20 @@ def main_menu():
                 pygame.quit()
                 quit()
             if button_start.pressed:
+                pg.mixer.Sound.play(button_click)
                 button_start.pressed = False
+                pg.mixer.Sound.stop(main_menu_theme)
                 game_reset()
                 return "game"
 
             # Save hs
             if button_save.pressed:
+                pg.mixer.Sound.play(button_click)
                 save_highscore(highscore, "highscore.sav")
                 button_save.pressed = False
             # Load hs
             if button_load.pressed:
+                pg.mixer.Sound.play(button_click)
                 highscore = load_highscore("highscore.sav")
                 button_load.pressed = False
 
@@ -126,10 +132,13 @@ def game_loop():
         snake, time, last_input, snake_png, snake_png_open, mouth_interval, open_mouth,\
         mouth_timer, move_timer
 
+    sound = False
+
     while True:
         # Game music
         if not sound:
             pygame.mixer.Sound.play(game_theme)
+            game_theme.set_volume(0.3)
             sound = True
 
         screen.fill('#DEAA79')
@@ -185,13 +194,15 @@ def game_loop():
             food.center = get_random_position()
 
         # Drawing the food
-        pg.draw.rect(screen, 'red', food)
+        screen.blit(food_png, food)
 
         # Borders and eliminating it eating itself
         self_eating = pg.Rect.collidelist(snake, segments[:-1]) != -1
         if self_eating:
             # Game over screen
             gameover = True
+
+            pg.mixer.Sound.stop(game_theme)
 
             over_txt = over_font.render('GAME OVER', True, (255, 255, 255))
             over_rect = over_txt.get_rect(center=(750 // 2, 200))
@@ -212,18 +223,25 @@ def game_loop():
                 return "menu"
 
         if pause and not gameover:
+            pg.mixer.pause()
             button_continue.draw()
             button_retry.draw()
             button_main.draw()
             if button_continue.pressed:
+                pg.mixer.unpause()
                 pause = False
                 pg.mixer.Sound.play(button_click)
                 button_continue.pressed = False
             elif button_retry.pressed:
+                pg.mixer.Sound.play(button_click)
+                pg.mixer.Sound.stop(game_theme)
                 pause = False
+                sound = False
                 game_reset()
                 button_retry.pressed = False
             elif button_main.pressed:
+                pg.mixer.Sound.play(button_click)
+                pg.mixer.Sound.stop(game_theme)
                 button_main.pressed = False
                 return "menu"
 

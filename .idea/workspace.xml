@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Fixed mouth animation, added wrap-around-screen border logic x)">
+    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pngs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pngs.py" afterDir="false" />
@@ -45,23 +45,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.buttons.executor&quot;: &quot;Run&quot;,
-    &quot;Python.globals.executor&quot;: &quot;Run&quot;,
-    &quot;Python.kolesarjenje_po_manhattnu.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lovro/Desktop/Programming/Python/Snek&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.a.executor": "Run",
+    "Python.buttons.executor": "Run",
+    "Python.globals.executor": "Run",
+    "Python.kolesarjenje_po_manhattnu.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/lovro/Desktop/Programming/Python/Snek",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -93,7 +94,8 @@
       <workItem from="1733333243126" duration="2016000" />
       <workItem from="1733343761321" duration="2000" />
       <workItem from="1733389518915" duration="5642000" />
-      <workItem from="1733408164317" duration="5015000" />
+      <workItem from="1733408164317" duration="6684000" />
+      <workItem from="1733418756388" duration="642000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed menu big xd rawr">
       <option name="closed" value="true" />
@@ -143,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733395010677</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour">
+      <option name="closed" value="true" />
+      <created>1733416334273</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733416334273</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,12 +182,14 @@
     <MESSAGE value="Changed the standard green square to an image head and image body, added images of snake in all directions with open and closed mouth, fixed the food spawning in the snake." />
     <MESSAGE value="Added mouth animation, although it is kind of fast" />
     <MESSAGE value="Fixed mouth animation, added wrap-around-screen border logic x)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed mouth animation, added wrap-around-screen border logic x)" />
+    <MESSAGE value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Snek$kolesarjenje_po_manhattnu.coverage" NAME="kolesarjenje_po_manhattnu Coverage Results" MODIFIED="1733327157561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../Faks/P1/Naloge/Ocenjevanje" />
+    <SUITE FILE_PATH="coverage/Snek$a.coverage" NAME="a Coverage Results" MODIFIED="1733419028500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$globals.coverage" NAME="globals Coverage Results" MODIFIED="1733318427946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733415679895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733419320033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$buttons.coverage" NAME="buttons Coverage Results" MODIFIED="1732808916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
