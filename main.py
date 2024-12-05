@@ -9,8 +9,6 @@ from snake_mouth_toggle import state_mapping
 
 pg.init()
 
-
-
 WINDOW = 750
 TILE_SIZE = 50
 clock = pg.time.Clock()
@@ -19,6 +17,7 @@ pg.display.set_caption('Snake')
 RANGE = (TILE_SIZE // 2, WINDOW - TILE_SIZE // 2, TILE_SIZE)
 get_random_position = lambda: [randrange(*RANGE), randrange(*RANGE)]
 
+# Snake stuff
 snake = snake_closed_mouth_right.get_rect()
 snake_png = snake_closed_mouth_right
 snake_png_open = snake_open_mouth_right
@@ -27,6 +26,11 @@ snake.center = get_random_position()
 segments = [snake.copy()]
 snake_dir = (0, 0)
 time, time_step = 0, 100
+
+# Snake mouth
+open_mouth = False
+mouth_timer = 0
+mouth_interval = 300
 
 # Food
 food = snake.copy()
@@ -98,7 +102,8 @@ def main_menu():
 def game_loop():
     # Globals
     global length, segments, highscore, score, gameover, pause, sound, snake_dir,\
-        snake, time, last_input, snake_png, snake_png_open
+        snake, time, last_input, snake_png, snake_png_open, mouth_interval, open_mouth,\
+        mouth_timer
 
     while True:
         # Game music
@@ -107,6 +112,7 @@ def game_loop():
             sound = True
 
         screen.fill('black')
+        current_time = pg.time.get_ticks()
 
         # Events
         for event in pg.event.get():
@@ -155,7 +161,7 @@ def game_loop():
 
         # Borders and eliminating it eating itself
         self_eating = pg.Rect.collidelist(snake, segments[:-1]) != -1
-        if snake.left < 0 or snake.right > WINDOW or snake.top < 0 or snake.bottom > WINDOW or self_eating:
+        if self_eating:
             # Game over screen
             gameover = True
 
@@ -163,6 +169,8 @@ def game_loop():
             over_rect = over_txt.get_rect(center=(750 // 2, 200))
 
             screen.blit(over_txt, over_rect)
+            if score > highscore:
+                highscore = score
 
             button_retry.draw()
             button_main.draw()
@@ -206,13 +214,27 @@ def game_loop():
             if time_now - time > time_step:
                 time = time_now
                 snake.move_ip(snake_dir)
+
+                # Border logic
+                if snake.left < 0:
+                    snake.right = WINDOW
+                elif snake.right > WINDOW:
+                    snake.left  = 0
+                if snake.top < 0:
+                    snake.bottom = WINDOW
+                elif snake.bottom > WINDOW:
+                    snake.top = 0
+
                 new_head = pg.Rect(snake)
                 segments.append(new_head)
                 segments = segments[-length:]
 
         # Mouth animation
-        if not gameover and not pause:
-            snake_png = state_mapping.get(snake_png, snake_png)
+        if current_time - mouth_timer > mouth_interval:
+            if not gameover and not pause:
+                snake_png = state_mapping.get(snake_png, snake_png)
+                open_mouth = not open_mouth
+                mouth_timer = current_time
 
 
         pg.display.flip()

@@ -11,4 +11,4 @@ state_mapping = {
     snake_open_mouth_up: snake_closed_mouth_up,
     snake_closed_mouth_down: snake_open_mouth_down,
     snake_open_mouth_down: snake_closed_mouth_down,
-}
+    }
