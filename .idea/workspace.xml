@@ -4,11 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Fixed sound not working, changed the food to an apple x)">
+    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Prepared for exe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pngs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pngs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/apple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/bg_game.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sounds/Button_sound.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sounds/Game_music.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sounds/Main_menu_theme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sounds/Pause_music.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,24 +62,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.a.executor": "Run",
-    "Python.buttons.executor": "Run",
-    "Python.globals.executor": "Run",
-    "Python.kolesarjenje_po_manhattnu.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/lovro/Desktop/Programming/Python/Snek",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.a.executor&quot;: &quot;Run&quot;,
+    &quot;Python.buttons.executor&quot;: &quot;Run&quot;,
+    &quot;Python.globals.executor&quot;: &quot;Run&quot;,
+    &quot;Python.kolesarjenje_po_manhattnu.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lovro/Desktop/Programming/Python/Snek&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -96,7 +112,11 @@
       <workItem from="1733343761321" duration="2000" />
       <workItem from="1733389518915" duration="5642000" />
       <workItem from="1733408164317" duration="6684000" />
-      <workItem from="1733418756388" duration="2011000" />
+      <workItem from="1733418756388" duration="2196000" />
+      <workItem from="1733573277558" duration="427000" />
+      <workItem from="1733574765900" duration="879000" />
+      <workItem from="1733594129015" duration="411000" />
+      <workItem from="1733596410744" duration="1378000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed menu big xd rawr">
       <option name="closed" value="true" />
@@ -162,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733419739191</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Prepared for exe">
+      <option name="closed" value="true" />
+      <created>1733420938650</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733420938650</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,13 +221,24 @@
     <MESSAGE value="Fixed mouth animation, added wrap-around-screen border logic x)" />
     <MESSAGE value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
     <MESSAGE value="Fixed sound not working, changed the food to an apple x)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed sound not working, changed the food to an apple x)" />
+    <MESSAGE value="Prepared for exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared for exe" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/globals.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Snek$kolesarjenje_po_manhattnu.coverage" NAME="kolesarjenje_po_manhattnu Coverage Results" MODIFIED="1733327157561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../Faks/P1/Naloge/Ocenjevanje" />
     <SUITE FILE_PATH="coverage/Snek$a.coverage" NAME="a Coverage Results" MODIFIED="1733419028500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$globals.coverage" NAME="globals Coverage Results" MODIFIED="1733318427946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733420772823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snek$main.coverage" NAME="main Coverage Results" MODIFIED="1733597791574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Snek$buttons.coverage" NAME="buttons Coverage Results" MODIFIED="1732808916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

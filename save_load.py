@@ -1,7 +1,7 @@
 import pygame as pg
 import pickle
 
-# Save only the high score
+# Save the high score
 def save_highscore(highscore, file_name):
     try:
         with open(file_name, 'wb') as file:

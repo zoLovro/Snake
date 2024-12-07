@@ -4,7 +4,8 @@ import pygame.mouse
 from buttons import Button
 from globals import gui_font, menu_font, over_font, screen, resource_path
 from pngs import (snake_body_col, snake_open_mouth_right, snake_closed_mouth_right,
-                  snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down, food_png)
+                  snake_closed_mouth_left, snake_closed_mouth_up, snake_closed_mouth_down,
+                  food_png, main_menu_png)
 from snake_mouth_toggle import state_mapping
 from save_load import save_highscore, load_highscore
 
@@ -59,11 +60,10 @@ button_save = Button('Save', 100, 45, (650, 648), 5)
 button_load = Button('Load', 100, 45, (650, 700), 5)
 
 # Sounds
-main_menu_theme = pg.mixer.Sound(resource_path('sounds/Main_menu_theme.mp3'))
-button_click = pg.mixer.Sound(resource_path('sounds/Button_sound.mp3'))
-pause_theme = pg.mixer.Sound(resource_path('sounds/Pause_music.mp3'))
-button_click = pg.mixer.Sound(resource_path('sounds/Button_sound.mp3'))
-game_theme = pg.mixer.Sound(resource_path('sounds/Game_music.mp3'))
+main_menu_theme = pg.mixer.Sound(resource_path('data/sounds/Main_menu_theme.mp3'))
+button_click = pg.mixer.Sound(resource_path('data/sounds/Button_sound.mp3'))
+pause_theme = pg.mixer.Sound(resource_path('data/sounds/Pause_music.mp3'))
+game_theme = pg.mixer.Sound(resource_path('data/sounds/Game_music.mp3'))
 
 # Statements
 sound = False
@@ -82,7 +82,7 @@ def main_menu():
     snake_dir = (0, 0)
 
     while True:
-        screen.fill('black')
+        screen.blit(main_menu_png, (-100,-60))
         button_start.draw()
         button_quit.draw()
         button_load.draw()
