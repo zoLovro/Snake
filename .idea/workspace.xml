@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Prepared for exe">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pngs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/apple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/bg_game.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_body.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_closed_mouth_up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pngs/snake_head_mouth_up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/save_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/Button_sound.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/Game_music.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/Main_menu_theme.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/Pause_music.mp3" beforeDir="false" />
-    </list>
+    <list default="true" id="a38b56f4-c93e-4242-9281-b85fd8b10cf2" name="Changes" comment="Added main menu background, prepared for distribution" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +95,7 @@
       <workItem from="1733573277558" duration="427000" />
       <workItem from="1733574765900" duration="879000" />
       <workItem from="1733594129015" duration="411000" />
-      <workItem from="1733596410744" duration="1378000" />
+      <workItem from="1733596410744" duration="1505000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed menu big xd rawr">
       <option name="closed" value="true" />
@@ -190,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733420938650</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added main menu background, prepared for distribution">
+      <option name="closed" value="true" />
+      <created>1733597850751</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733597850751</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +209,8 @@
     <MESSAGE value="Added functional save load buttons for your highscore, fixed a bug where the snake would die upon pressing two buttons too quickly, added a background colour" />
     <MESSAGE value="Fixed sound not working, changed the food to an apple x)" />
     <MESSAGE value="Prepared for exe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepared for exe" />
+    <MESSAGE value="Added main menu background, prepared for distribution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added main menu background, prepared for distribution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

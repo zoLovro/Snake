@@ -8,9 +8,9 @@ screen = pg.display.set_mode([WINDOW] * 2)
 
 # Fonts
 pg.font.init()
-gui_font = pg.font.Font('Grand9K Pixel.ttf', 30)
-menu_font = pg.font.Font('Grand9K Pixel.ttf', 150)
-over_font = pg.font.Font('Grand9K Pixel.ttf', 100)
+gui_font = pg.font.Font('Data/Grand9K_Pixel.ttf', 30)
+menu_font = pg.font.Font('Data/Grand9K_Pixel.ttf', 150)
+over_font = pg.font.Font('Data/Grand9K_Pixel.ttf', 100)
 
 def resource_path(relative_path):
     """ Get the absolute path to a resource, works for PyInstaller. """
