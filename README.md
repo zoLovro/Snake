@@ -17,4 +17,4 @@ This is a recreation/remake of the old Snake game, written in Pygame.
 - Basic score counter and high score
 - Pause menu with continue, restart, and main menu button
 
-#Download
+##Download
