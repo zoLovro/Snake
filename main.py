@@ -9,8 +9,6 @@ from pngs import (snake_body_col, snake_open_mouth_right, snake_closed_mouth_rig
 from snake_mouth_toggle import state_mapping
 from save_load import save_highscore, load_highscore
 
-
-
 pg.mixer.pre_init(44100, -16, 2, 512)
 pg.init()
 pg.mixer.init()
@@ -70,6 +68,7 @@ sound = False
 pause = False
 gameover = False
 last_input = None
+music_paused = False
 
 # Main menu function
 def main_menu():
@@ -87,7 +86,6 @@ def main_menu():
         button_quit.draw()
         button_load.draw()
         button_save.draw()
-
 
         highscore_txt = gui_font.render('HIGHSCORE: ' + str(highscore), True, (0, 255, 0))
         highscore_rect = highscore_txt.get_rect(center=(750 // 2, 20))
@@ -133,7 +131,7 @@ def game_loop():
     # Globals
     global length, segments, highscore, score, gameover, pause, sound, snake_dir,\
         snake, time, last_input, snake_png, snake_png_open, mouth_interval, open_mouth,\
-        mouth_timer, move_timer
+        mouth_timer, move_timer, music_paused
 
     sound = False
 
@@ -143,6 +141,9 @@ def game_loop():
             pygame.mixer.Sound.play(game_theme)
             game_theme.set_volume(0.3)
             sound = True
+        if music_paused and not pause:
+            music_paused = False
+            pg.mixer.unpause()
 
         screen.fill('#DEAA79')
         current_time = pg.time.get_ticks()
@@ -230,11 +231,13 @@ def game_loop():
             button_continue.draw()
             button_retry.draw()
             button_main.draw()
+            music_paused = True
             if button_continue.pressed:
                 pg.mixer.unpause()
                 pause = False
                 pg.mixer.Sound.play(button_click)
                 button_continue.pressed = False
+                music_paused = False
             elif button_retry.pressed:
                 pg.mixer.Sound.play(button_click)
                 pg.mixer.Sound.stop(game_theme)
