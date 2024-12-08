@@ -6,8 +6,16 @@ This is a recreation/remake of the old Snake game, written in Pygame.
 
 ## Key features
 
-- Basic game menus (Main menu, pause, and game over menu)
+- Basic game menus (Main menu, pause, and game-over menu)
+<div style="display: flex;">
+  <img src="https://i.imgur.com/fJJzWT6.jpg" alt="Image could not be displayed" width="300"/>
+  <img src="https://i.imgur.com/nA0ufLY.png" alt="Image could not be displayed" width="300"/>
+  <img src="https://i.imgur.com/VwdB8Kz.png" alt="Image could not be displayed" width="300"/>
+</div>
+
 - Clickable buttons with visual movement and sound
+<img src="https://i.imgur.com/R2vg0En.gif" alt="Image could not be displayed" width="300"/>
+
 - Basic music and sounds
 
 - Moving snake and randomly spawning food
