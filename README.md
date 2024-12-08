@@ -28,7 +28,7 @@ This is a recreation/remake of the old Snake game, written in Pygame.
   - Mouth open-and-close animation
   - Score counter and high score
     <div style="display: flex;">
-      <img src="https://i.imgur.com/bG50aBd.gif" alt="Image could not be displayed" width="250"/>
+      <img src="https://i.imgur.com/hGZDpiy.gif" alt="Image could not be displayed" width="250"/>
       <img src="https://i.imgur.com/NsCRWpi.png" alt="Image could not be displayed" width="250"/>
     </div>
 
