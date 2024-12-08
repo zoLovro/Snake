@@ -8,9 +8,9 @@ This is a recreation/remake of the old Snake game, written in Pygame.
 
 - Basic game menus (Main menu, pause, and game-over menu)
 <div style="display: flex;">
-  <img src="https://i.imgur.com/fJJzWT6.jpg" alt="Image could not be displayed" width="300"/>
-  <img src="https://i.imgur.com/nA0ufLY.png" alt="Image could not be displayed" width="300"/>
-  <img src="https://i.imgur.com/VwdB8Kz.png" alt="Image could not be displayed" width="300"/>
+  <img src="https://i.imgur.com/fJJzWT6.jpg" alt="Image could not be displayed" width="250"/>
+  <img src="https://i.imgur.com/nA0ufLY.png" alt="Image could not be displayed" width="250"/>
+  <img src="https://i.imgur.com/VwdB8Kz.png" alt="Image could not be displayed" width="250"/>
 </div>
 
 - Clickable buttons with visual movement and sound
