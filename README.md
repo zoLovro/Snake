@@ -18,4 +18,4 @@ This is a recreation/remake of the old Snake game, written in Pygame.
 - Pause menu with continue, restart, and main menu button
 
 ## Download
-| [MacOS](https://drive.google.com/file/d/1-OnbmPuhTRLpUcIAnSsQPhe1Y5QK71Vk/view?usp=sharing) | [Windows]() |
+| [MacOS](https://drive.google.com/file/d/1PLObGiXQJcIRGhAdnEI0jp8995cOF7Rv/view?usp=sharing) | [Windows]() |
