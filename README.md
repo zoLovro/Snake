@@ -34,7 +34,7 @@ This is a recreation/remake of the old Snake game, written in Pygame.
 
 
 # Downloads
-| [MacOS](https://drive.google.com/file/d/1PLObGiXQJcIRGhAdnEI0jp8995cOF7Rv/view?usp=sharing) | [Windows]() |
+| [MacOS](https://drive.google.com/file/d/1PLObGiXQJcIRGhAdnEI0jp8995cOF7Rv/view?usp=sharing) | [Windows](https://drive.google.com/file/d/1IHXrK34uGnrMtKKPL29gqDHPgCL0rTiI/view?usp=sharing) |
 #### Upon downloading simply open the .app file (MacOS) or the .exe file (Windows). 
 
 # Pygame installation
